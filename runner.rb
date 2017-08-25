@@ -1,7 +1,13 @@
 require 'open-uri'
-
-
 require 'json'
+require_relative 'view'
+require_relative 'controller'
+
+view = View.new
+controller = Controller.new
+view.show_instructions
+chosen_currency = view.get_input
+
 
 
 BASE_URL = "https://blockchain.info/ticker"

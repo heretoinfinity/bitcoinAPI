@@ -4,23 +4,23 @@ class View
       "USD",
       "JPY",
       "CNY",
-      "SGD", 
-      "HKD", 
-      "CAD", 
-      "NZD", 
-      "AUD", 
-      "CLP", 
-      "GBP", 
-      "DKK", 
-      "SEK", 
-      "ISK", 
+      "SGD",
+      "HKD",
+      "CAD",
+      "NZD",
+      "AUD",
+      "CLP",
+      "GBP",
+      "DKK",
+      "SEK",
+      "ISK",
       "CHF",
-      "BRL", 
-      "EUR", 
+      "BRL",
+      "EUR",
       "RUB",
-      "PLN", 
-      "THB", 
-      "KRW", 
+      "PLN",
+      "THB",
+      "KRW",
       "TWD"
     ]
   end
@@ -31,11 +31,12 @@ class View
     puts "~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~"
     puts "~~$$~~$$~~$$                Money Raker v.0.0.1           $$~~$$~~$$~~$$~~"
     puts "~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~"
-    puts 
+    puts
     puts "Pick your desired currency from the list of codes below:"
-    # until ind = 0
-    5.times do |ind|
+    ind = 0
+    until ind == 20
       puts "#{@currency_symbols[ind]} #{@currency_symbols[ind+1]} #{@currency_symbols[ind+2]} #{@currency_symbols[ind+3]} #{@currency_symbols[ind+4]}"
+      ind +=5
     end
   end
 

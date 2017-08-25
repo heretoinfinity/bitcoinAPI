@@ -23,14 +23,14 @@ initial_value = response_hash[chosen_currency]['last']
 
 print "PROCESSING ."
 
-timer = 65
+timer = 72
 until timer <= 0
   sleep(1)
   print "."
   timer -= 2
 end
 
-puts 
+puts
 puts "Calibrating money hose"
 response2 = open(BASE_URL).read
 

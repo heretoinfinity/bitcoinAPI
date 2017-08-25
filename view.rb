@@ -1,40 +1,66 @@
 class View
   def initialize
-    @currency_symbols = {
-        "USD" =>  "$",
-        "JPY" => "¥",
-        "CNY" => "¥",
-        "SGD" => "$",
-        "HKD" => "$",
-        "CAD" => "$",
-        "NZD" => "$",
-        "AUD" => "$",
-        "CLP" => "$",
-        "GBP" => "£",
-        "DKK" => "kr",
-        "SEK" =>"kr",
-        "ISK" => "kr",
-        "CHF" => "CHF",
-        "BRL" => "R$",
-        "EUR" => "€",
-        "RUB" => "RUB",
-        "PLN" => "zł",
-        "THB" => "฿",
-        "KRW" => "₩",
-        "TWD" =>"NT$"
-    }
+    @currency_symbols = [
+      "USD",
+      "JPY",
+      "CNY",
+      "SGD", 
+      "HKD", 
+      "CAD", 
+      "NZD", 
+      "AUD", 
+      "CLP", 
+      "GBP", 
+      "DKK", 
+      "SEK", 
+      "ISK", 
+      "CHF",
+      "BRL", 
+      "EUR", 
+      "RUB",
+      "PLN", 
+      "THB", 
+      "KRW", 
+      "TWD"
+    ]
   end
 
 
   def show_instructions
-    puts "~~$$~~$$~~$$~~$$~~$$~~Money Raker v.0.0.1~~$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~"
+    puts "\n\n\n\n"
+    puts "~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~"
+    puts "~~$$~~$$~~$$                Money Raker v.0.0.1           $$~~$$~~$$~~$$~~"
+    puts "~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~"
+    puts 
     puts "Pick your desired currency from the list of codes below:"
-    @currency_symbols.each do |key, value|
-      puts "#{key}"
+    # until ind = 0
+    5.times do |ind|
+      puts "#{@currency_symbols[ind]} #{@currency_symbols[ind+1]} #{@currency_symbols[ind+2]} #{@currency_symbols[ind+3]} #{@currency_symbols[ind+4]}"
     end
   end
 
   def get_input
-    user_input = gets.chomp
+    puts
+    puts '~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~'
+    user_input = gets.chomp.upcase
+    puts '~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~'
+    until valid_input?(user_input)
+      puts
+      puts '~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~'
+      user_input = gets.chomp.upcase
+      puts '~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~$$~~'
+      puts
+    end
+    user_input
+  end
+
+  def valid_input?(input)
+
+    if @currency_symbols.include?(input)
+      true
+    else
+      puts 'Please enter a valid currency from provided codes'
+      false
+    end
   end
 end
